@@ -1,5 +1,7 @@
 # Docker Archlinux Firefox
 
+[![Dockerhub Build](https://img.shields.io/docker/cloud/build/mefdock/docker-arch-firefox)](https://cloud.docker.com/repository/docker/mefdock/docker-arch-firefox)
+
 Docker container using Archlinux and providing firefox.
 
 ## Usage with host Xorg
