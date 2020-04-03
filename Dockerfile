@@ -8,4 +8,9 @@ RUN pacman -Syu --noconfirm  && pacman -S --noconfirm base
 
 RUN pacman -S --noconfirm firefox
 
-ENTRYPOINT ["firefox"]
+# Setup a firefox profile that will allow us to disable the first start privacy
+# notice
+RUN mkdir /firefox_profile
+RUN echo 'user_pref("datareporting.policy.firstRunURL", "");' > /firefox_profile/prefs.js
+
+ENTRYPOINT ["firefox", "--profile", "/firefox_profile"]
