@@ -20,4 +20,9 @@ RUN echo 'user_pref("datareporting.healthreport.uploadEnabled", false);' >> /fir
 RUN echo 'user_pref("datareporting.policy.dataSubmissionEnabled", false);' >> /firefox_profile/prefs.js
 RUN echo 'user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);' >> /firefox_profile/prefs.js
 
+RUN mkdir /downloads
+RUN echo 'user_pref("browser.download.dir", "/downloads");' >> /firefox_profile/prefs.js
+RUN echo 'user_pref("browser.download.lastDir", "/downloads");' >> /firefox_profile/prefs.js
+RUN echo 'user_pref("browser.download.folderList", 2);' >> /firefox_profile/prefs.js
+
 ENTRYPOINT ["firefox", "--profile", "/firefox_profile"]
